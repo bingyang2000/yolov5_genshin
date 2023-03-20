@@ -1,0 +1,12 @@
+#train: data/bx/train.txt
+#val: data/bx/val.txt
+
+train: data/bx/train_l.txt
+val: data/bx/val_l.txt
+
+
+nc: 4
+names: ['pt', 'jz', 'hl', 'zg']
+
+
+augment: true

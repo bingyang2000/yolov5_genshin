@@ -1,0 +1,5 @@
+/tmp/yolov5/data/bx/images/val/1-23.png
+/tmp/yolov5/data/bx/images/val/2-14.png
+/tmp/yolov5/data/bx/images/val/3-20.png
+/tmp/yolov5/data/bx/images/val/4-19.png
+/tmp/yolov5/data/bx/images/val/50.png

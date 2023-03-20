@@ -1,0 +1,5 @@
+D:\project\DeepStudy\yolov5\data\bx\images\val\1-23.png
+D:\project\DeepStudy\yolov5\data\bx\images\val\2-14.png
+D:\project\DeepStudy\yolov5\data\bx\images\val\3-20.png
+D:\project\DeepStudy\yolov5\data\bx\images\val\4-19.png
+D:\project\DeepStudy\yolov5\data\bx\images\val\50.png
