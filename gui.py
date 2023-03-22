@@ -10,62 +10,79 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from PyQt5.QtWidgets import QFileDialog
-import detect, sys
-
 
 class Ui_MainWindow(object):
-
-    def __init__(self):
-        self.path_img = ""
-        self.view_img = False
-        self.select = False
-
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(513, 328)
+        MainWindow.resize(618, 467)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(50, 30, 131, 31))
+        self.label.setGeometry(QtCore.QRect(10, 150, 131, 31))
         self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(50, 60, 111, 51))
+        self.pushButton.setGeometry(QtCore.QRect(10, 180, 111, 51))
         self.pushButton.setIconSize(QtCore.QSize(16, 16))
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(230, 60, 101, 51))
+        self.pushButton_2.setGeometry(QtCore.QRect(450, 180, 111, 51))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(230, 130, 91, 31))
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(230, 160, 54, 12))
-        self.label_3.setObjectName("label_3")
+        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_3.setGeometry(QtCore.QRect(10, 10, 111, 31))
+        self.pushButton_3.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.lwe = QtWidgets.QLabel(self.centralwidget)
+        self.lwe.setGeometry(QtCore.QRect(130, 10, 441, 31))
+        self.lwe.setObjectName("lwe")
+        self.ld = QtWidgets.QLabel(self.centralwidget)
+        self.ld.setGeometry(QtCore.QRect(130, 50, 441, 31))
+        self.ld.setObjectName("ld")
+        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_4.setGeometry(QtCore.QRect(10, 50, 111, 31))
+        self.pushButton_4.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_4.setObjectName("pushButton_4")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(330, 160, 54, 12))
+        self.label_4.setGeometry(QtCore.QRect(10, 100, 81, 31))
         self.label_4.setObjectName("label_4")
+        self.cd = QtWidgets.QComboBox(self.centralwidget)
+        self.cd.setGeometry(QtCore.QRect(90, 100, 69, 22))
+        self.cd.setObjectName("cd")
+        self.cd.addItem("")
+        self.cd.addItem("")
+        self.pushButton_5 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_5.setGeometry(QtCore.QRect(240, 370, 91, 41))
+        self.pushButton_5.setIconSize(QtCore.QSize(16, 16))
+        self.pushButton_5.setObjectName("pushButton_5")
         self.label_5 = QtWidgets.QLabel(self.centralwidget)
-        self.label_5.setGeometry(QtCore.QRect(230, 220, 54, 12))
+        self.label_5.setGeometry(QtCore.QRect(450, 240, 16, 31))
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.centralwidget)
-        self.label_6.setGeometry(QtCore.QRect(330, 220, 54, 12))
+        self.label_6.setGeometry(QtCore.QRect(450, 270, 16, 31))
         self.label_6.setObjectName("label_6")
-        self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit.setGeometry(QtCore.QRect(230, 180, 81, 31))
-        self.textEdit.setObjectName("textEdit")
-        self.textEdit_2 = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_2.setGeometry(QtCore.QRect(330, 180, 81, 31))
-        self.textEdit_2.setObjectName("textEdit_2")
-        self.textEdit_3 = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_3.setGeometry(QtCore.QRect(230, 240, 81, 31))
-        self.textEdit_3.setObjectName("textEdit_3")
-        self.textEdit_4 = QtWidgets.QTextEdit(self.centralwidget)
-        self.textEdit_4.setGeometry(QtCore.QRect(330, 240, 81, 31))
-        self.textEdit_4.setObjectName("textEdit_4")
+        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.label_7.setGeometry(QtCore.QRect(450, 300, 41, 31))
+        self.label_7.setObjectName("label_7")
+        self.label_8 = QtWidgets.QLabel(self.centralwidget)
+        self.label_8.setGeometry(QtCore.QRect(450, 330, 41, 31))
+        self.label_8.setObjectName("label_8")
+        self.lf = QtWidgets.QLabel(self.centralwidget)
+        self.lf.setGeometry(QtCore.QRect(10, 240, 401, 31))
+        self.lf.setObjectName("lf")
+        self.lx = QtWidgets.QLabel(self.centralwidget)
+        self.lx.setGeometry(QtCore.QRect(475, 240, 81, 31))
+        self.lx.setObjectName("lx")
+        self.ly = QtWidgets.QLabel(self.centralwidget)
+        self.ly.setGeometry(QtCore.QRect(475, 270, 81, 31))
+        self.ly.setObjectName("ly")
+        self.lh = QtWidgets.QLabel(self.centralwidget)
+        self.lh.setGeometry(QtCore.QRect(500, 330, 61, 31))
+        self.lh.setObjectName("lh")
+        self.lwi = QtWidgets.QLabel(self.centralwidget)
+        self.lwi.setGeometry(QtCore.QRect(490, 300, 61, 31))
+        self.lwi.setObjectName("lwi")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 513, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 618, 23))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -74,67 +91,29 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.pushButton.clicked.connect(self.getFileDir)
-        self.pushButton_2.clicked.connect(self.screen)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle("Ycy-1925050061")
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow",
                                       "<html><head/><body><p><span style=\" font-size:12pt;\">请选择输入方式:</span></p></body></html>"))
         self.pushButton.setText(_translate("MainWindow", "文件"))
         self.pushButton_2.setText(_translate("MainWindow", "屏幕识别"))
-        self.label_2.setText(_translate("MainWindow", "请输入坐标"))
-        self.label_3.setText(_translate("MainWindow", "x"))
-        self.label_4.setText(_translate("MainWindow", "y"))
-        self.label_5.setText(_translate("MainWindow", "width"))
-        self.label_6.setText(_translate("MainWindow", "height"))
-        self.textEdit.setHtml(_translate("MainWindow",
-                                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                         "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                         "p, li { white-space: pre-wrap; }\n"
-                                         "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                         "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
-        self.textEdit_2.setHtml(_translate("MainWindow",
-                                           "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                           "p, li { white-space: pre-wrap; }\n"
-                                           "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">0</p></body></html>"))
-        self.textEdit_3.setHtml(_translate("MainWindow",
-                                           "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                           "p, li { white-space: pre-wrap; }\n"
-                                           "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">960</p></body></html>"))
-        self.textEdit_4.setHtml(_translate("MainWindow",
-                                           "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-                                           "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-                                           "p, li { white-space: pre-wrap; }\n"
-                                           "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
-                                           "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">540</p></body></html>"))
-
-    def getFileDir(self):
-        # 文件路径
-        self.path_img, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './',
-                                                       'ALL(*.*)')
-        # 显示图像
-        self.view_img = False
-
-        self.select = True
-        # detect.start(self.path_img, self.view_img)
-
-    def screen(self):
-        # 屏幕位置
-
-        x = self.textEdit.toPlainText()
-        y = self.textEdit_2.toPlainText()
-        width = self.textEdit_3.toPlainText()
-        height = self.textEdit_4.toPlainText()
-
-        self.path_img = f"screen 0 {x} {y} {width} {height}"
-
-        # 显示图像
-        self.view_img = True
-        self.select = True
-        # detect.start(self.path_img, self.view_img)
+        self.pushButton_3.setText(_translate("MainWindow", "选择weight文件"))
+        self.lwe.setText(_translate("MainWindow", "<html><head/><body><p>不选择即为默认</p></body></html>"))
+        self.ld.setText(_translate("MainWindow", "<html><head/><body><p>不选择即为默认</p></body></html>"))
+        self.pushButton_4.setText(_translate("MainWindow", "选择data.yaml文件"))
+        self.label_4.setText(_translate("MainWindow",
+                                        "<html><head/><body><p><span style=\" font-size:14pt;\">device</span></p></body></html>"))
+        self.cd.setItemText(0, _translate("MainWindow", "0"))
+        self.cd.setItemText(1, _translate("MainWindow", "cpu"))
+        self.pushButton_5.setText(_translate("MainWindow", "开始"))
+        self.label_5.setText(_translate("MainWindow", "<html><head/><body><p>X：</p></body></html>"))
+        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p>Y：</p></body></html>"))
+        self.label_7.setText(_translate("MainWindow", "<html><head/><body><p>Width：</p></body></html>"))
+        self.label_8.setText(_translate("MainWindow", "<html><head/><body><p>Height：</p></body></html>"))
+        self.lf.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.lx.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.ly.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.lh.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.lwi.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
