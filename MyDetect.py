@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QFileDialog
 import sys, gui
 
 import detect, time
@@ -47,7 +47,6 @@ class MainW(QMainWindow, gui.Ui_MainWindow):
         self.setupUi(self)
         self.weight = r"D:\project\DeepStudy\yolov5\runs\train\200_16_ASFF\weights\best.pt"
         self.data = r"D:\project\DeepStudy\yolov5\models\config\data.yaml"
-        self.isStart = False
         self.view_img = True
         self.path_img = ""
         self.device = "0"
@@ -60,30 +59,24 @@ class MainW(QMainWindow, gui.Ui_MainWindow):
         self.lwe.setText(self.weight)
 
     def getFileDir(self):
-        filternames = '图片视频文件(*.mp4 *.jpg *.png);;ALL(*.*)'
-        # 输入文件路径
-        path_img, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './', filternames)
-        if path_img != '':
-            self.path_img = path_img
-            # 显示图像
-            self.view_img = False
-            self.lf.setText(self.path_img)
+        # 文件路径
+        self.path_img, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './',
+                                                       'ALL(*.*)')
+        # 显示图像
+        self.view_img = False
+        self.lf.setText(self.path_img)
 
     def getDataDir(self):
-        filternames = '数据集文件(*.yaml)'
-        # 数据集文件路径
-        data, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './', filternames)
-        if data != '':
-            self.data = data
-            self.ld.setText(self.data)
+        # 文件路径
+        self.data, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './',
+                                                   'ALL(*.*)')
+        self.ld.setText(self.data)
 
     def getWeightDir(self):
-        filternames = '权重文件(*.pt);;ALL(*.*)'
-        # 权重文件路径
-        weight, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './', filternames)
-        if weight != '':
-            self.weight = weight
-            self.lwe.setText(self.weight)
+        # 文件路径
+        self.weight, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './',
+                                                     'ALL(*.*)')
+        self.lwe.setText(self.weight)
 
     def screen(self):
         # 屏幕位置
@@ -107,24 +100,15 @@ class MainW(QMainWindow, gui.Ui_MainWindow):
         self.view_img = True
 
     def start(self):
-        if self.isStart:
-            QMessageBox.warning(self, "警告", '推理进行中！', QMessageBox.Ok)
-        elif self.path_img == "":
-            QMessageBox.warning(self, "警告", '未选择输入方式', QMessageBox.Ok)
-        else:
-            self.isStart = True
-            self.device = self.cd.currentText()
-            save_dir = detect.run(source=self.path_img, view_img=self.view_img, data=self.data, weights=self.weight,
-                                  device=self.device)
-            result = save_dir.split('\n')[1].split(' ')[-1][:-7]
-            QMessageBox.information(self, '完成', "Result saved to " + result)
-            self.path_img = ''
-            self.lf.setText(self.path_img)
-            self.isStart = False
+        self.device = self.cd.currentText()
+        self.close()
+        self.closeEvent(detect.run(source=self.path_img, view_img=self.view_img, data=self.data, weights=self.weight,
+                                   device=self.device))
 
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     md = MainW()
     md.show()
+
     app.exec_()
