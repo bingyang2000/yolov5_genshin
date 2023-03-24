@@ -7,7 +7,7 @@ matplotlib>=3.2.2
 numpy>=1.18.5
 # opencv-python>=4.1.1
 Pillow>=7.1.2
-psutil  # system resources
+psutil~=5.9.0
 PyYAML>=5.3.1
 requests>=2.23.0
 scipy>=1.4.1
@@ -61,3 +61,10 @@ tensorboard>=2.4.1
 # pycocotools>=2.0.6  # COCO mAP
 # roboflow
 # ultralytics  # HUB https://hub.ultralytics.com
+
+# torch~=1.13.1+cu116
+# yaml~=0.2.5
+# torchvision~=0.14.1+cu116
+# seaborn~=0.12.2
+# tqdm~=4.64.0
+pyqt5~=5.15.9
