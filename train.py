@@ -34,6 +34,8 @@ import yaml
 from torch.optim import lr_scheduler
 from tqdm import tqdm
 
+import myUi
+
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # YOLOv5 root directory
 if str(ROOT) not in sys.path:
@@ -280,8 +282,10 @@ def train(hyp, opt, device, callbacks):  # hyp is path/to/hyp.yaml or hyp dictio
             train_loader.sampler.set_epoch(epoch)
         pbar = enumerate(train_loader)
         LOGGER.info(('\n' + '%11s' * 7) % ('Epoch', 'GPU_mem', 'box_loss', 'obj_loss', 'cls_loss', 'Instances', 'Size'))
+
         if RANK in {-1, 0}:
-            pbar = tqdm(pbar, total=nb, bar_format=TQDM_BAR_FORMAT)  # progress bar
+            pbar = tqdm(pbar, total=nb, bar_format=TQDM_BAR_FORMAT)  # p410-
+            # rogress bar
         optimizer.zero_grad()
         for i, (imgs, targets, paths, _) in pbar:  # batch -------------------------------------------------------------
             callbacks.run('on_train_batch_start')

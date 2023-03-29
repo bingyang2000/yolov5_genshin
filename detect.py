@@ -244,6 +244,8 @@ def run(
     if update:
         strip_optimizer(weights[0])  # update model (to fix SourceChangeWarning)
 
+    return f"Results saved to {colorstr('bold', save_dir)}{s}"
+
 
 def parse_opt(file_path, view_img):  # 对命令行输入的命令进行获取参数
     parser = argparse.ArgumentParser()
