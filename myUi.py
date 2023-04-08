@@ -191,7 +191,7 @@ class MainW(QMainWindow, gui.Ui_MainWindow):
 
     def getCfgDir(self):
         # 文件路径
-        filternames = '配置文件(*.yaml)'
+        filternames = '配置文件(*.yaml);;ALL(*.*)'
         # 输入文件路径
         cfg, _ = QFileDialog.getOpenFileName(self.centralwidget, '打开文件', './', filternames)
         if cfg != '':
